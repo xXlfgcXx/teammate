@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fondo de Césped de Cancha de Fútbol</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('./court-787406_1280.jpg');
+            /* background-size: cover; */
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 90vh;
+        }
+
+        .content {
+            color: white;
+            text-shadow: 1px 1px 2px black;
+            padding: 20px;
+        }
+
+        .half-screen {
+            height: 50vh;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row half-screen">
+            <div class="col-md-12 col-12 content text-center">
+                <input type="text" id="PorteroLocal" class="text-center" placeholder="Portero">
+            </div>
+            <div class="col-md-6 col-6 content text-center">
+                <input type="text" id="JugadorLocalUno" class="text-center" placeholder="Jugador">
+            </div>
+            <div class="col-md-6 col-6 content text-center">
+                <input type="text" id="JugadorLocalDos" class="text-center" placeholder="Jugador">
+            </div>
+            <div class="col-md-3 col-3 content text-center">
+            </div>
+            <div class="col-md-3 col-3 content text-center">
+                <input type="text" id="JugadorLocalTres" class="text-center" placeholder="Jugador">
+            </div>
+            <div class="col-md-3 col-3 content text-center">
+                <input type="text" id="JugadorLocalCuatro" class="text-center" placeholder="Jugador">
+            </div>
+            <div class="col-md-3 col-3 content text-center">
+            </div>
+        </div>
+
+        <div class="row half-screen">
+            <div class="col-md-3 col-3 content text-center">
+            </div>
+            <div class="col-md-3 col-3 content text-center">
+                <input type="text" id="JugadorRivalCuatro" class="text-center" placeholder="Jugador">
+            </div>
+            <div class="col-md-3 col-3 content text-center">
+                <input type="text" id="JugadorRivalTres" class="text-center" placeholder="Jugador">
+            </div>
+            <div class="col-md-3 col-3 content text-center">
+            </div>
+            <div class="col-md-6 col-6 content text-center">
+                <input type="text" id="JugadorRivalDos" class="text-center" placeholder="Jugador">
+            </div>
+            <div class="col-md-6 col-6 content text-center">
+                <input type="text" id="JugadorRivalUno" class="text-center" placeholder="Jugador">
+            </div>
+            <div class="col-md-12 col-12 content text-center">
+                <input type="text" id="PorteroRival" class="text-center" placeholder="Portero">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const PorteroLocal = document.getElementById('PorteroLocal');
+        const JugadorLocalUno = document.getElementById('JugadorLocalUno');
+        const JugadorLocalDos = document.getElementById('JugadorLocalDos');
+        const JugadorLocalTres = document.getElementById('JugadorLocalTres');
+        const JugadorLocalCuatro = document.getElementById('JugadorLocalCuatro');
+
+        const DefensaLocal = document.getElementById('PorteroRival');
+        const JugadorRivalUno = document.getElementById('JugadorRivalUno');
+        const JugadorRivalDos = document.getElementById('JugadorRivalDos');
+        const JugadorRivalTres = document.getElementById('JugadorRivalTres');
+        const JugadorRivalCuatro = document.getElementById('JugadorRivalCuatro');
+
+
+        const idList = ['PorteroLocal', 'DefensaLocal']
+        const getLocalStorage = () => {
+            const porteroLocal = localStorage.getItem('PorteroLocal');
+            if (porteroLocal) {
+                PorteroLocal.value = porteroLocal;
+            }
+            const jugadorLocalUno = localStorage.getItem('JugadorLocalUno');
+            if (jugadorLocalUno) {
+                JugadorLocalUno.value = jugadorLocalUno;
+            }
+
+            const jugadorLocalDos = localStorage.getItem('JugadorLocalDos');
+            if (jugadorLocalDos) {
+                JugadorLocalDos.value = jugadorLocalDos;
+            }
+
+            const jugadorLocalTres = localStorage.getItem('JugadorLocalTres');
+            if (jugadorLocalTres) {
+                JugadorLocalTres.value = jugadorLocalTres;
+            }
+
+            const jugadorLocalCuatro = localStorage.getItem('JugadorLocalCuatro');
+            if (jugadorLocalCuatro) {
+                JugadorLocalCuatro.value = jugadorLocalCuatro;
+            }
+
+            //todo
+
+            const porteroRival = localStorage.getItem('PorteroRival');
+            if (porteroRival) {
+                PorteroRival.value = porteroRival;
+            }
+
+            const jugadorRivalUno = localStorage.getItem('JugadorRivalUno');
+            if (jugadorRivalUno) {
+                JugadorRivalUno.value = jugadorRivalUno;
+            }
+
+            const jugadorRivalDos = localStorage.getItem('JugadorRivalDos');
+            if (jugadorRivalDos) {
+                JugadorRivalDos.value = jugadorRivalDos;
+            }
+
+            const jugadorRivalTres = localStorage.getItem('JugadorRivalTres');
+            if (jugadorRivalTres) {
+                JugadorRivalTres.value = jugadorRivalTres;
+            }
+
+            const jugadorRivalCuatro = localStorage.getItem('JugadorRivalCuatro');
+            if (jugadorRivalCuatro) {
+                JugadorRivalCuatro.value = jugadorRivalCuatro;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => getLocalStorage());
+
+        PorteroLocal.addEventListener('input', () => {
+            localStorage.setItem('PorteroLocal', PorteroLocal.value);
+        });
+
+        JugadorLocalUno.addEventListener('input', () => {
+            localStorage.setItem('JugadorLocalUno', JugadorLocalUno.value);
+        });
+
+        JugadorLocalDos.addEventListener('input', () => {
+            localStorage.setItem('JugadorLocalDos', JugadorLocalDos.value);
+        });
+
+        JugadorLocalTres.addEventListener('input', () => {
+            localStorage.setItem('JugadorLocalTres', JugadorLocalTres.value);
+        });
+
+        JugadorLocalCuatro.addEventListener('input', () => {
+            localStorage.setItem('JugadorLocalCuatro', JugadorLocalCuatro.value);
+        });
+
+        //todo
+
+        PorteroRival.addEventListener('input', () => {
+            localStorage.setItem('PorteroRival', PorteroRival.value);
+        });
+
+        JugadorRivalUno.addEventListener('input', () => {
+            localStorage.setItem('JugadorRivalUno', JugadorRivalUno.value);
+        });
+
+        JugadorRivalDos.addEventListener('input', () => {
+            localStorage.setItem('JugadorRivalDos', JugadorRivalDos.value);
+        });
+
+        JugadorRivalTres.addEventListener('input', () => {
+            localStorage.setItem('JugadorRivalTres', JugadorRivalTres.value);
+        });
+
+        JugadorRivalCuatro.addEventListener('input', () => {
+            localStorage.setItem('JugadorRivalCuatro', JugadorRivalCuatro.value);
+        });
+
+
+    </script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
